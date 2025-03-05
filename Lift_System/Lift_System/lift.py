@@ -44,6 +44,10 @@ class Lift:
                 self.stop_list.pop(0)
             else:
                 self.stop_list.pop()
+            # unpress button
+            button = self.controls.get_button_with_value(self.current_floor)
+            button.unselect_buton()
+
             self.stop()
             self.open_lift()
             # opening simulation
@@ -75,4 +79,6 @@ class Lift:
             print("Can't perform this action when lift is moving")
 
     def select_destination(self, floor):
+        button = self.controls.get_button_with_value(floor)
+        button.press_button()
         heapq.heappush(self.stop_list, floor)

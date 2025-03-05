@@ -8,6 +8,9 @@ class BaseControls:
 
     def get_buttons(self):
         return self.buttons
+    
+    def get_button_with_value(self, value):
+        button = next((button for button in self.buttons if button.value == value), None)
 
 
 class OuterControls(BaseControls):
