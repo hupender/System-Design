@@ -42,5 +42,9 @@ class LiftSystem:
         """
         curr floor and destination direction
         """
+        if direction == DIRECTION.UP.value:
+            heapq.heappush(self.pending_up_requests, floor)
+        else:
+            heapq.heappush(self.pending_down_requests, floor)
         # algorithm to call lift (lift dispatcher)
         pass
